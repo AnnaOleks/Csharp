@@ -26,7 +26,14 @@ namespace Csharp
             Console.Write("Mis on sinu nimi? ");
             tekst = Console.ReadLine();
             Console.WriteLine("Tere!\n" + tekst);
-            // Console.WriteLine("{1} Tere!\n{0}", tekst, arv); //индекс прописывается по местоположению перемнной после запятой
+            Console.WriteLine("{1} Tere! {0}", tekst, arv); //индекс прописывается по местоположению перемнной после запятой
+            Console.WriteLine("Arv 2: ");
+            int arv2 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Arvude {0} ja {1} korrutis vordub {2}", arv1, arv2, arv1 * arv2);
+            arv1 = Funktsioonid.Kalkulaator(a, arv2);
+            Console.WriteLine(arv1);
+            Console.Write("\nMis on sinu nimi? ");
+            tekst = Console.ReadLine();
             if (tekst.ToLower() == "juku")
             {
                 Console.WriteLine("Laheme kinno!");
@@ -61,12 +68,6 @@ namespace Csharp
                 Console.WriteLine("Olen hoivatud!");
             }
 
-
-            //Console.WriteLine("Arv 2: ");
-            //int arv2 = int.Parse(Console.ReadLine());
-            //Console.WriteLine("Arvude {0} ja {1} korrutis vordub {2}", arv1, arv2, arv1 * arv2);
-            //arv1 = Funktsioonid.Kalkulaator(a, arv2);
-            //Console.WriteLine(arv1);
             Console.ReadLine();
             Console.ReadKey();
 
@@ -74,6 +75,30 @@ namespace Csharp
             tekst = Funktsioonid.switchkas(tekst);
             Console.WriteLine(tekst);
             Console.ReadLine();
+
+            Console.WriteLine("1) Mis sinu nimi on? ");
+            string nimi1 = Console.ReadLine();
+            Console.WriteLine("2) Mis sinu nimi on? ");
+            string nimi2 = Console.ReadLine();
+            Console.WriteLine("{0} ja {1}, teie olete pinginaabrid!", nimi1, nimi2);
+            Console.WriteLine();
+            Console.WriteLine("1 Seina pikkus: ");
+            double sein1 = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("2 Seina pikkus: ");
+            double sein2 = Convert.ToDouble(Console.ReadLine());
+            double pind = Funktsioonid.pindala(sein1 , sein2);
+            Console.WriteLine("Poranda pindala on {0}. Kas soovite teha remonti? (jah/ei)", pind);
+            string vastus = Console.ReadLine();
+            double kokku = Funktsioonid.hind(vastus, pind);
+            Console.WriteLine("Poranda vahetuse maksumus: {0}.", kokku);
+            Console.WriteLine();
+            Console.WriteLine("Mis hind on?");
+            double hind = Convert.ToDouble(Console.ReadLine());
+            double alghind=Funktsioonid.hind30(hind);
+            Console.WriteLine("Alghind on: {0}", alghind);
+            Console.WriteLine();
+            Console.WriteLine("Milline temperatuur toas on?");
+            temp 
         }
     }
 }

@@ -35,5 +35,31 @@ namespace Csharp
             }
             return tekst;
         }
+        public static double pindala(double sein1, double sein2)
+        {
+            double pind=sein1 * sein2;
+            return pind;
+        }
+        public static double hind(string vastus, double pind)
+        {
+            double kokku = 0;
+            if (vastus.ToLower() == "jah")
+            {
+                Console.WriteLine("Kui palju maksab ruutmeeter? ");
+                double hind = Convert.ToDouble(Console.ReadLine());
+                kokku = pind * hind;
+            }
+            else
+            {
+                Console.WriteLine("Head aega");
+            }
+            return kokku;
+        }
+        public static double hind30(double hind)
+        {
+            double alghind=hind*1.3;
+            return alghind;
+        }
+        public static double toatemp(double temp)
     }
 }
