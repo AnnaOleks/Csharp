@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Csharp
 {
-    internal class Funktsioonid
+    internal class Funktsioonid_1osa
     {
         public static float Kalkulaator(int arv1, int arv2)
         {
@@ -60,6 +60,6 @@ namespace Csharp
             double alghind=hind*1.3;
             return alghind;
         }
-        public static double toatemp(double temp)
+       
     }
 }
