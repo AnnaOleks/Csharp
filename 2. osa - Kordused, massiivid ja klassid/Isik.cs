@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Csharp
+namespace Csharp._2._osa___Kordused__massiivid_ja_klassid
 {
     internal enum Sugu
     {

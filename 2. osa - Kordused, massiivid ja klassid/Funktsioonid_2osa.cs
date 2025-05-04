@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Csharp
+namespace Csharp._2._osa___Kordused__massiivid_ja_klassid
 {
     internal class Funktsioonid_2osa
     {
@@ -53,6 +54,42 @@ namespace Csharp
             isikud2.Add(isik);
             }
             return isikud2;
+        }
+        public static double[] Tekstist_arvud()
+        {
+            Console.WriteLine("Sisesta arvud komadega eraldatult: ");
+            string sisend = Console.ReadLine();
+            string[] numbrid = sisend.Split(',');
+            double[] arvud = new double[numbrid.Length];
+
+            for (int i = 0; i < numbrid.Length; i++)
+            {
+                arvud[i] = double.Parse(numbrid[i].Trim());
+            }
+            return arvud;
+        }
+        public static Tuple<double, double, double> AnalüüsiArve(double[] arvud)
+        {
+            double summa = 0;
+            double korrutis = 1;
+
+            foreach (double arv in arvud)
+            {
+                summa += arv;
+                korrutis *= arv;
+            }
+            double keskmine = summa/arvud.Length;
+            return Tuple.Create(summa, korrutis, keskmine);
+        }
+        public static List<string> Inimesed()
+        {
+            List<string> inimesed = new List<string>();
+            for (int l = 0; l < 5; l++)
+            {
+                Console.WriteLine($"Sisesta {l+1} nimi: ");
+                inimesed.Add(Console.ReadLine());
+            }
+            return inimesed;
         }
     }
 }
