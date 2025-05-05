@@ -41,8 +41,8 @@ namespace Csharp._2._osa___Kordused__massiivid_ja_klassid
         public static List<Isik> Isikud2(int p, string[] nimed, string[] aadressid)
         {
             List<Isik> isikud2 = new List<Isik>();
-            for (int j = p-1; j > -1; j--)
-            { 
+            for (int j = p - 1; j > -1; j--)
+            {
                 Console.WriteLine(j);
                 Isik isik = new Isik
                 {
@@ -51,7 +51,7 @@ namespace Csharp._2._osa___Kordused__massiivid_ja_klassid
                     Isikukood = "11223344556",
                     Aadress = aadressid[j]
                 };
-            isikud2.Add(isik);
+                isikud2.Add(isik);
             }
             return isikud2;
         }
@@ -78,18 +78,67 @@ namespace Csharp._2._osa___Kordused__massiivid_ja_klassid
                 summa += arv;
                 korrutis *= arv;
             }
-            double keskmine = summa/arvud.Length;
+            double keskmine = summa / arvud.Length;
             return Tuple.Create(summa, korrutis, keskmine);
         }
-        public static List<string> Inimesed()
+        public static Tuple<int, double, Inimene, Inimene> Statistika(List<Inimene> inimesed)
         {
-            List<string> inimesed = new List<string>();
-            for (int l = 0; l < 5; l++)
+            int summa = 0;
+            Inimene vanim = inimesed[0];
+            Inimene noorim = inimesed[0];
+
+            foreach (var inimene in inimesed)
             {
-                Console.WriteLine($"Sisesta {l+1} nimi: ");
-                inimesed.Add(Console.ReadLine());
+                summa += inimene.Vanus;
+
+                if (inimene.Vanus > vanim.Vanus)
+                    vanim = inimene;
+
+                if (inimene.Vanus < noorim.Vanus)
+                    noorim = inimene;
             }
-            return inimesed;
+
+            double keskmine = summa / inimesed.Count;
+            return Tuple.Create(summa, keskmine, vanim, noorim);
+        }
+        public static void KuniMärksõnani(string märksõna, string fraas)
+        {
+            List<string> sisestused = new List<string>();
+            string sisend;
+            do
+            {
+                Console.WriteLine(fraas);
+                sisend = Console.ReadLine();
+                sisestused.Add(sisend);
+            }
+            while (sisend != märksõna);
+            Console.WriteLine("Sisestused:");
+            foreach (string s in sisestused)
+            {
+                Console.WriteLine(s);
+            }
+        }
+        public static void ArvaArv()
+        {
+            Random random = new Random();
+            int arv = random.Next(1, 101);
+            int katseArv = 0;
+            int sisestus = 0;
+            int katseid = 5;
+            Console.WriteLine("Arva ära number vahemikus 1-100");
+            do
+            {
+                Console.WriteLine("Sisesta number:");
+                sisestus = int.Parse(Console.ReadLine());
+                katseArv++;
+                if (sisestus < arv)
+                    Console.WriteLine("Liiga väike!");
+                else if (sisestus > arv)
+                    Console.WriteLine("Liiga suur!");
+                else
+                    Console.WriteLine($"Õige! Arvasid ära {katseArv} katsega.");
+            }
+            while (sisestus != arv && katseArv < katseid);
         }
     }
 }
