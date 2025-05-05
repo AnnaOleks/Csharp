@@ -5,7 +5,7 @@ using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Csharp
+namespace Csharp._1._osa___Põhi__ja_valikute_konstruktsionid
 {
     internal class Funktsioonid_1osa
     {
