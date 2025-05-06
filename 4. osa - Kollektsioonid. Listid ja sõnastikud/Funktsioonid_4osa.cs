@@ -114,6 +114,48 @@ namespace Csharp._4._osa___Kollektsioonid._Listid_ja_sõnastikud
             double protsent = (double)oigeVastus / kokku * 100;
             Console.WriteLine($"Mängu lõpp.\nÕigeid vastuseid: {oigeVastus}\nVale vastuseid: {valeVastus}\nTulemus: {protsent}");
         }
+        public static List<Film> LeiaFilmidZanriJargi(List<Film> filmid, string zanr)
+        {
+            List<Film> tulemused = new List<Film>();
+            for (int i = 0; i < filmid.Count; i++)
+            {
+                if (filmid[i].Zanr.ToLower() == zanr.ToLower())
+                {
+                    tulemused.Add(filmid[i]);
+                }
+            }
+            return tulemused;
+        }
+        public static Film LeiaUusimFilm(List<Film> filmid)
+        {
+            Film uusim = filmid[0];
+            for (int i = 1; i < filmid.Count; i++)
+            {
+                if (filmid[i].Aasta > uusim.Aasta)
+                {
+                    uusim = filmid[i];
+                }
+            }
+            return uusim;
+        }
+        public static Dictionary<string, List<Film>> GrupeeriZanriteJargi(List<Film> filmid)
+        {
+            Dictionary<string, List<Film>> grupeeritud = new Dictionary<string, List<Film>>();
+
+            for (int i = 0; i < filmid.Count; i++)
+            {
+                string zanr = filmid[i].Zanr;
+
+                if (!grupeeritud.ContainsKey(zanr))
+                {
+                    grupeeritud[zanr] = new List<Film>();
+                }
+
+                grupeeritud[zanr].Add(filmid[i]);
+            }
+
+            return grupeeritud;
+        }
     }
 }
 
