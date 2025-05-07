@@ -8,23 +8,18 @@ namespace Csharp.Kangelane
 {
     class FailiLugemine
     {
-        // Список для хранения всех героев
-        List<Kangelane> kangelased = new List<Kangelane>();
-
-        // Метод, который читает героев из файла
-        public static void LoeKangelasedFailist(string fail)
+        public static List<Kangelane> LoeKangelasedFailist(string fail)
         {
-            // Проверяем, существует ли файл
+            List<Kangelane> kangelased = new List<Kangelane>();
+
             if (!File.Exists(fail))
             {
                 Console.WriteLine("Faili ei leitud: " + fail);
-                return;
+                return kangelased;
             }
 
-            // Читаем все строки из файла
             string[] read = File.ReadAllLines(fail);
 
-            // Обрабатываем каждую строку
             foreach (string rida in read)
             {
                 string[] osad = rida.Split('/');
@@ -32,7 +27,6 @@ namespace Csharp.Kangelane
                 string nimi = osad[0].Trim();
                 string asukoht = osad[1].Trim();
 
-                // Если имя содержит *, создаём SuperKangelane
                 if (nimi.Contains("*"))
                 {
                     nimi = nimi.Replace("*", "");
@@ -43,6 +37,7 @@ namespace Csharp.Kangelane
                     kangelased.Add(new Kangelane(nimi, asukoht));
                 }
             }
+            return kangelased;
         }
     }
 }

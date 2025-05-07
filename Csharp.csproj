@@ -5,7 +5,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <StartupObject>Csharp._4._osa___Kollektsioonid._Listid_ja_sõnastikud.Main_ulesanned</StartupObject>
+    <StartupObject>Csharp.Kangelane.Main_Kangelane</StartupObject>
   </PropertyGroup>
 
 </Project>

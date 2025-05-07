@@ -11,32 +11,40 @@ namespace Csharp.Kangelane
         static void Main(string[] args)
         {
             // Шаг 1: читаем героев из файла
-            LoeKangelasedFailist("andmed.txt");
+            List<Kangelane> kangelased = FailiLugemine.LoeKangelasedFailist(@"C:\\Users\\annao\\source\\repos\\Csharp\\Kangelane\\andmed.txt");
 
-            // Шаг 2: находим одного обычного и одного супергероя
-            Kangelane tavaline = kangelased.Find(k => k.GetType() == typeof(Kangelane));
-            SuperKangelane super = kangelased.Find(k => k is SuperKangelane) as SuperKangelane;
-
-            // Шаг 3: выводим информацию
-            if (tavaline != null)
+            if (kangelased.Count == 0)
             {
-                Console.WriteLine("=== Tavaline kangelane ===");
-                Console.WriteLine(tavaline.Kirjeldus());
-                Console.WriteLine("Päästetud inimesed: " + tavaline.Paasta(1000));
-                Console.WriteLine("Vormiriietus: " + tavaline.Vormiriietus());
-                Console.WriteLine("Tervitus: " + tavaline.Tervitus());
-                Console.WriteLine("Staatus: " + tavaline.MissiooniStaatus());
+                Console.WriteLine("Kangelasi ei leitud failist.");
+                return;
             }
 
-            if (super != null)
+            // Выводим информацию о каждом герое
+            foreach (Kangelane k in kangelased)
             {
-                Console.WriteLine("\n=== Superkangelane ===");
-                Console.WriteLine(super.Kirjeldus());
-                Console.WriteLine("Päästetud inimesed: " + super.Paasta(1000));
-                Console.WriteLine("Vormiriietus: " + super.Vormiriietus());
-                Console.WriteLine("Tervitus: " + super.Tervitus());
-                Console.WriteLine("Staatus: " + super.MissiooniStaatus());
+                if (k is SuperKangelane super)
+                {
+                    Console.WriteLine("=== Superkangelane ===");
+                    Console.WriteLine(super.Kirjeldus());
+                    Console.WriteLine("Päästetud inimesed: " + super.Paasta(1000));
+                    Console.WriteLine("Vormiriietus: " + super.Vormiriietus());
+                    Console.WriteLine("Tervitus: " + super.Tervitus());
+                    Console.WriteLine("Staatus: " + super.MissiooniStaatus());
+                }
+                else
+                {
+                    Console.WriteLine("=== Tavaline kangelane ===");
+                    Console.WriteLine(k.Kirjeldus());
+                    Console.WriteLine("Päästetud inimesed: " + k.Paasta(1000));
+                    Console.WriteLine("Vormiriietus: " + k.Vormiriietus());
+                    Console.WriteLine("Tervitus: " + k.Tervitus());
+                    Console.WriteLine("Staatus: " + k.MissiooniStaatus());
+                }
+
+                Console.WriteLine(); // Пустая строка между героями
             }
+
+            Console.WriteLine("Kõik kangelased on edukalt näidatud! 🦸‍♂️");
         }
     }
 }
