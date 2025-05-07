@@ -8,8 +8,4 @@
     <StartupObject>Csharp._4._osa___Kollektsioonid._Listid_ja_sõnastikud.Main_ulesanned</StartupObject>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Kangelane\" />
-  </ItemGroup>
-
 </Project>
