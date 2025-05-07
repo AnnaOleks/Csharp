@@ -43,8 +43,6 @@ namespace Csharp.Kangelane
 
                 Console.WriteLine(); // Пустая строка между героями
             }
-
-            Console.WriteLine("Kõik kangelased on edukalt näidatud! 🦸‍♂️");
         }
     }
 }

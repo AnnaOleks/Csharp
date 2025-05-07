@@ -39,7 +39,7 @@ namespace Csharp.Kangelane
         // Метод Tervitus — возвращает приветствие героя
         public string Tervitus()
         {
-            return $"Tere, mina olen {nimi}!"; // приветствие с именем
+            return $"Tere, mina olen {Nimi}!"; // приветствие с именем
         }
 
         // Метод MissiooniStaatus — говорит, свободен ли герой
@@ -51,7 +51,7 @@ namespace Csharp.Kangelane
         // Метод Kirjeldus — возвращает строку с описанием героя
         public string Kirjeldus()
         {
-            return $"Kangelane: {nimi}\nAsukoht: {asukoht}";
+            return $"Kangelane: {Nimi}\nAsukoht: {Asukoht}";
         }
     }
 }

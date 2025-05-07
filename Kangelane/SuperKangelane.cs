@@ -58,7 +58,7 @@ namespace Csharp.Kangelane
         {
             // base.Kirjeldus() возвращает описание обычного героя
             // мы добавляем туда ещё информацию об осавусе
-            return base.Kirjeldus() + $", Osavus: {osavus:F2}";
+            return base.Kirjeldus() + $"\nOsavus: {osavus:F2}";
         }
     }
 }
